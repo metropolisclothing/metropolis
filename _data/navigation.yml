@@ -1,0 +1,14 @@
+- title: Home
+  url: 'index.html'
+- title: Gallery
+  url: gallery/
+- title: Women
+  url: clothing/women.html
+- title: Men
+  url: clothing/men.html
+- title: Seamstress
+  url: 'seamstress.html'
+- title: About me
+  url: 'index.html#about'
+- title: Contact me
+  url: 'index.html#contact'
