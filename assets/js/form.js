@@ -1,7 +1,8 @@
 /* Validation functions for the form */
 	function valEmail(x){
             var theEmail=document.getElementById(x).value;
-	    var regexE = /^\S+@\S+$/;
+	    //var regexE = /^\S+@\S+$/;
+	    var regexE = /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
 	    //alert('email entered is ' + theEmail + ' regex is ' + regexE);
 		if (! regexE.test(theEmail)) {
 		    alert('Please enter a valid email address');
@@ -21,12 +22,17 @@
 	}
 	function valEnquiry(x){
             var theEnquiry=document.getElementById(x).value;
-            if theEnquiry.length > 511{
+            var detect = ["HenryGab", "Earning", "$"];
+            if (theEnquiry.length > 511) {
                 alert("Message too long! Please try again");
+                return false;
+            }
+            // if these words appear in the message, it is spam and must be destroyed
+            if (theEnquiry.indexOf(detect) < 0) {
+                alert("Spam detected, message deleted");
                 return false;
             }
             else{
                 return true;
             }
 	}
-
